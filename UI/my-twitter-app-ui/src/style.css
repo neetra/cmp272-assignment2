@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+
+h1, p {
+  font-family: Lato;
+}
+html, body {
+  padding: 0; 
+  margin: 0;
+}
+.header{
+    display: flex;
+}
+.home {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-weight: bolder;
+    font-size: 30px;
+}
+.twitter-icon{
+    height: 70px;
+    width: 70px;
+}
+
+.tweet-block{
+    display: flex;
+}
+
+.title-root{
+	display : flex
+}
+.tweet-whole{
+    border-style:outset;
+    padding: 10px;
+    margin: 5px;
+
+}
+.delete-icon{
+    height: 25px;
+}
+
+
