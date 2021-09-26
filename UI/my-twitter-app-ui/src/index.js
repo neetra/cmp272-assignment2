@@ -1,11 +1,13 @@
+// Netra
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Header from './Header';
 import Tweet from './Tweet'
-import Form from './Form'
 import './style.css';
 
-// TODO : Add Tweet, delete and edit
+// Zi
+import Form from './Form'
+
 class App extends Component {
   constructor() {
     super();
@@ -18,7 +20,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Form />
+        <Form />               
         <Tweet />
       </div>
     );
