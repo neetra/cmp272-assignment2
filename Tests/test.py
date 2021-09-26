@@ -1,5 +1,10 @@
+# Netra : Import file from server folder 
 import sys
-sys.path.append('../ASSIGNMENT2/server')
+import os
+cwd = os.getcwd()
+sys.path.append(cwd + "\server")
+
+# Netra : test imported modules
 try:    
     from TweetsHandler import app
     import unittest
@@ -9,27 +14,36 @@ except Exception as e:
 
 from TweetsHandler import app
 import unittest
+import json
 class FlaskTest(unittest.TestCase):    
 
-    #check self test
+    # Netra : Test to check connectivity
     def test_ping(self):
         test = app.test_client(self)
         response = test.get("/ping")
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
 
+    # Netra : Test to check get all tweets
     def test_get_alltweets(self):
         test = app.test_client(self)
-        response = test.get("/tweets")
-        statuscode = response.status_code
-        self.assertEqual(statuscode, 200)
+        response = test.get("/tweets")  
+
+        # Check status code, content type, and number of tweets returns      
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.content_type, 'application/json')   
+        data = json.loads(response.get_data(as_text=True))
+
+        # Maximum seven tweets are returned
+        self.assertLessEqual(len(data), 7)
 
     # # TODO
     def test_get_singletweet(self):
         test = app.test_client(self)
         response = test.get("/tweets/9")
-        statuscode = response.status_code
+        statuscode = response.status_code        
         self.assertEqual(statuscode, 200)    
-        
+
+# Netra : Run the set of tests        
 if __name__ == "__main__" :
     unittest.main()         

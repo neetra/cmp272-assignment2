@@ -1,6 +1,11 @@
 ## [Server](Server/TweetsHandler.py)
-    Developed in python, flask, tweepy
-    Runs on Flask, port 5000
+
+REST API to handle twitter API.
+### Steps to run:
+    1. Application is compatible with python version 3.9.7
+    2. Install flask, tweepy, flask_restful, TweetsProvider, flask_cors, unittest  modules:
+    3. Run the application using following command(cd to server directory):
+        python .\TweetsHandler.py         
 
 ## [Client](UI/my-twitter-app-ui)
     Developed in React, HTML, CSS, javascript
@@ -12,3 +17,5 @@
 
 ## [Test](Tests)
     Developed in python, unittest framework
+    Run the tests using following command(cd to tests directory):
+        python .\test.py   
