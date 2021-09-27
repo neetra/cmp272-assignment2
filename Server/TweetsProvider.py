@@ -18,12 +18,13 @@ class TweetProvider():
 
     # Netra : Get recent Tweets and Retweets posted by the authenticating user and the users they follow.
     def get_tweets_from_api(self)        :
-        public_tweets = self.api.home_timeline(count = 5)
-        user_tweets = self.api.user_timeline(count = 2)
-        public_tweets = public_tweets + user_tweets
+        public_tweets = self.api.home_timeline() ##(count = 5)
+        #user_tweets = self.api.user_timeline(count = 2)
+        #public_tweets = public_tweets + user_tweets
         allTweets = [];
         for t in public_tweets:
-            tweet = { 'id' : t.id, 'text' : t.text, 'author' : t.author.name }
+            print(t.id)
+            tweet = { 'id' : str(t.id), 'text' : t.text, 'author' : t.author.name }
             allTweets.append(tweet)
         return allTweets;
 

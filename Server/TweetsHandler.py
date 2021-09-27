@@ -33,7 +33,7 @@ class CreateTweet(Resource):
 # Govinder/Rohan : Delete the tweet
 class DeleteTweet(Resource):
   def delete(self, status_id):
-    print(status_id);
+    print(status_id+" to be deleted ...");
     data = tp.del_tweet(status_id);
     return {'message' : status_id}, 200
 

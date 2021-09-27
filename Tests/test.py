@@ -1,22 +1,22 @@
-# Netra : Import file from server folder 
+# Netra : Import file from server folder
 import sys
 import os
 cwd = os.getcwd()
-sys.path.append(cwd + "\server")
+sys.path.append(cwd + "/server")
 
 # Netra : test imported modules
-try:    
+try:
     from TweetsHandler import app
     import unittest
 
 except Exception as e:
-    print ("Some Modules are missing")    
+    print ("Some Modules are missing")
 
 from TweetsHandler import app
 import unittest
 import json
 import time
-class FlaskTest(unittest.TestCase):    
+class FlaskTest(unittest.TestCase):
 
     # Netra : Test to check connectivity
     def test_ping(self):
@@ -28,11 +28,11 @@ class FlaskTest(unittest.TestCase):
     # Netra : Test to check get all tweets
     def test_get_alltweets(self):
         test = app.test_client(self)
-        response = test.get("/tweets")  
+        response = test.get("/tweets")
 
-        # Check status code, content type, and number of tweets returns      
+        # Check status code, content type, and number of tweets returns
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.content_type, 'application/json')   
+        self.assertEqual(response.content_type, 'application/json')
         data = json.loads(response.get_data(as_text=True))
 
         # Maximum seven tweets are returned

@@ -6,8 +6,8 @@ class Tweet extends Component {
   constructor(props){
     super(props);
     this.state = {
-      tweets: []     
-    }   
+      tweets: []
+    }
 
     // URL for twitter API
     this.baseURL = "http://127.0.0.1:5000/"
@@ -16,20 +16,21 @@ class Tweet extends Component {
   componentDidMount(){
     fetch(this.baseURL +  'tweets')
       .then(res => res.json())
-      .then(data => {       
-        
-        let tweets = data.map(tweets => {             
-              return(              
-                <div className='tweet-whole' key = {tweets.id}>  
+      .then(data => {
+
+        let tweets = data.map(tweet => {
+              return(
+                <div className='tweet-whole' key = {tweet.id}>
                 <div className = 'title-root'>
-                    <div className='title'>{tweets.author}</div>
-                   <img className='delete-icon' src={deleticon} alt={tweets.id} onClick={() => Delete.DeleteTweet(tweets.id)}></img>
+                    <div className='title'>{tweet.id}</div>
+                   <img className='delete-icon' src={deleticon} title={tweet}
+                      onClick={() => Delete.DeleteTweet(tweet.id)}></img>
                 </div>
                 <div className='tweet-text'>
-                    {tweets.text}
-                </div>               
-                </div>                
-                )          
+                    {tweet.text}
+                </div>
+                </div>
+                )
                })
           this.setState({
             tweets: tweets
@@ -45,7 +46,7 @@ class Tweet extends Component {
           {this.state.tweets}
         </div>
     </ Fragment>
-  ) 
+  )
   }
 }
 
