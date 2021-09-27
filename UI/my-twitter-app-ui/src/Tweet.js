@@ -22,7 +22,7 @@ class Tweet extends Component {
               return(
                 <div className='tweet-whole' key = {tweet.id}>
                 <div className = 'title-root'>
-                    <div className='title'>{tweet.id}</div>
+                    <div className='title'>{tweet.author}</div>
                    <img className='delete-icon' src={deleticon} title={tweet}
                       onClick={() => Delete.DeleteTweet(tweet.id)}></img>
                 </div>
