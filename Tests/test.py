@@ -40,11 +40,27 @@ class FlaskTest(unittest.TestCase):
 
     # Zi : test post/create
     def test_post_tweet(self):
+<<<<<<< Updated upstream
         test = app.test_client(self)
         response = test.post("/tweet/post/unittest"+str(time.time()))
+=======
+        test = app.test_client(self)
+        response = test.post("/tweet/post/unittest"+str(time.time()))
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+    
+    #Govinder test delete tweet
+    def test_delete_tweet(self):
+        test = app.test_client(self)
+        response = test.delete("/tweet/delete/unittest"+str(time.time()))
+>>>>>>> Stashed changes
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
 
 # Netra : Run the tests
 if __name__ == "__main__" :
+<<<<<<< Updated upstream
     unittest.main()
+=======
+    unittest.main() 
+>>>>>>> Stashed changes
