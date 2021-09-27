@@ -1,3 +1,4 @@
+// Netra:  Container for all Tweets
 import React, {Component, Fragment} from 'react';
 import deleticon from './delete-icon.png'
 
@@ -5,11 +6,13 @@ class Tweet extends Component {
   constructor(props){
     super(props);
     this.state = {
-      tweets: [],
-      number: 3
+      tweets: []     
     }   
+
+    // URL for twitter API
     this.baseURL = "http://127.0.0.1:5000/"
   }
+
   componentDidMount(){
     fetch(this.baseURL +  'tweets')
       .then(res => res.json())
