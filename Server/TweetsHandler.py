@@ -30,12 +30,23 @@ class CreateTweet(Resource):
       data = tp.post_tweet(str);
       return {'message':str}, 200
 
+# Govinder/Rohan : Delete the tweet
+class DeleteTweet(Resource):
+  def delete(self, str):
+    print(str);
+    data = tp.delete_tweet(str);
+    return {'message' :str}, 200
+
+
 # Netra
 api.add_resource(Ping, '/ping') 
 api.add_resource(TweetList, '/tweets') 
 
 # Zi
 api.add_resource(CreateTweet, '/tweet/post/<string:str>')
+
+# Govinder
+api.add_resource(DeleteTweet, '/tweet/delete/<string:str>')
 
 # Netra: Run flask app
 if __name__ == '__main__':
