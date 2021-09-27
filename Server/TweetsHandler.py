@@ -32,9 +32,9 @@ class CreateTweet(Resource):
 
 # Govinder/Rohan : Delete the tweet
 class DeleteTweet(Resource):
-  def delete(self, str):
-    print(str);
-    data = tp.delete_tweet(str);
+  def delete(self, status_id):
+    print(status_id);
+    data = tp.delete_tweet(status_id);
     return {'message' :str}, 200
 
 
