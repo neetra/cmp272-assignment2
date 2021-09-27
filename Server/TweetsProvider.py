@@ -30,7 +30,13 @@ class TweetProvider():
     # Zi : Create a tweet
     def post_tweet(self, status):
         df = self.api.update_status(status);
-        return df;         
+        return df;   
+    
+    # Govinder/Rohan : Create a tweet
+    def del_tweet(self, status):
+        df = self.api.destroystatus(self, status);
+        return df;
+        
 
 
 
